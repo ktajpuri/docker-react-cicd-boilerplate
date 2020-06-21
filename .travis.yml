@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build it ktajpuri/docker-react-cicd-boilerplate -f Dockerfile.dev .
+  - docker build -t tajpuri/docker-react-cicd-boilerplate -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true USERNAME/docker-react npm run test
