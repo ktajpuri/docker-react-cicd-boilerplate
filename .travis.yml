@@ -7,3 +7,15 @@ before_install:
 
 script:
   - docker run -e CI=true ktajpuri/docker-react-cicd-boilerplate npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "docker-react-cicd-boilerplate"
+  evd: "DockerReactCicdBoilerplate-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-675325355746"
+  bucket_path: "docker-react-cicd-boilerplate"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
